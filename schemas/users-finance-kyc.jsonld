@@ -1,0 +1,68 @@
+{
+    "@context": [
+      {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "UsersFinanceKYC": {
+          "@id": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld#UsersFinanceKYC",
+          "@context": {
+            "@version": 1.1,
+            "@protected": true,
+            "id": "@id",
+            "type": "@type",
+            "vocab": "https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity-vocab.md#",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "firstName": {
+              "@id": "vocab:firstName",
+              "@type": "xsd:string"
+            },
+            "lastName": {
+                "@id": "vocab:lastName",
+                "@type": "xsd:string"
+              },
+            "middleName": {
+                "@id": "vocab:middleName",
+                "@type": "xsd:string"
+              },
+            "city": {
+                "@id": "vocab:city",
+                "@type": "xsd:string"
+              },
+            "country": {
+                "@id": "vocab:country",
+                "@type": "xsd:string"
+              },
+            "addressLine1": {
+                "@id": "vocab:addressLine1",
+                "@type": "xsd:string"
+              },
+            "addressLine2": {
+                "@id": "vocab:addressLine2",
+                "@type": "xsd:string"
+              },
+            "district": {
+                "@id": "vocab:district",
+                "@type": "xsd:string"
+              },
+            "postalCode": {
+                "@id": "vocab:postalCode",
+                "@type": "xsd:string"
+              },
+            "phoneNumber": {
+                "@id": "vocab:phoneNumber",
+                "@type": "xsd:string"
+              },
+            "emailAddress": {
+                "@id": "vocab:emailAddress",
+                "@type": "xsd:string"
+              }
+            
+            
+          }
+        }
+      }
+    ]
+  }
+  
