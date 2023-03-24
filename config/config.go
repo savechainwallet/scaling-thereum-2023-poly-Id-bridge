@@ -14,9 +14,15 @@ import (
 // To skip set the Parameter by environment variable you must sen env flag to "-"
 type AppConfig struct {
 	// App
-	TCPPort  string `env:"PORT"`      // Port for rest API
-	LogLevel string `env:"LOG_LEVEL"` // Logining DEBUG/ERROR/WARN
-
+	TCPPort           string `env:"PORT"`      // Port for rest API
+	LogLevel          string `env:"LOG_LEVEL"` // Logining DEBUG/ERROR/WARN
+	PrivateKey        string `env:"APP_PRIVATE_KEY"`
+	PublicKey         string `env:"APP_PUBLIC_KEY"`
+	DatabaseUrl       string `env:"APP_DATABASE_URL"`
+	AppDomain         string `env:"APP_DOMAIN"`
+	RPCUrl            string `env:"RPC_URL"`
+	ValidatorContract string `env:"VALIDATOR_CONTRACT"`
+	ResolverPrefix    string `env:"RESOLVER_PREFIX"`
 }
 
 var conf AppConfig

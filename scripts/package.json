@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@polybase/client": "^0.3.37"
+    "@polybase/client": "^0.3.37",
+    "@polybase/util": "^0.3.37"
   },
   "type": "module"
 }

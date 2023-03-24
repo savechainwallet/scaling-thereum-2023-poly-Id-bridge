@@ -22,38 +22,6 @@
                 "@id": "vocab:lastName",
                 "@type": "xsd:string"
               },
-            "middleName": {
-                "@id": "vocab:middleName",
-                "@type": "xsd:string"
-              },
-            "city": {
-                "@id": "vocab:city",
-                "@type": "xsd:string"
-              },
-            "country": {
-                "@id": "vocab:country",
-                "@type": "xsd:string"
-              },
-            "addressLine1": {
-                "@id": "vocab:addressLine1",
-                "@type": "xsd:string"
-              },
-            "addressLine2": {
-                "@id": "vocab:addressLine2",
-                "@type": "xsd:string"
-              },
-            "district": {
-                "@id": "vocab:district",
-                "@type": "xsd:string"
-              },
-            "postalCode": {
-                "@id": "vocab:postalCode",
-                "@type": "xsd:string"
-              },
-            "phoneNumber": {
-                "@id": "vocab:phoneNumber",
-                "@type": "xsd:string"
-              },
             "emailAddress": {
                 "@id": "vocab:emailAddress",
                 "@type": "xsd:string"
