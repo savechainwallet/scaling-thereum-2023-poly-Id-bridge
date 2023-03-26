@@ -26,7 +26,7 @@ export async function GetSession(sessionId){
 export async function GenerateProof(data,sessionId){
     const resp = await fetch(`/api/sessions/${sessionId}`,{
         method:"POST",
-        body: JSON.stringify({a: 1, b: 2})        
+        body: JSON.stringify(data)        
     })
     return await resp.text()
 

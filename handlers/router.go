@@ -31,6 +31,7 @@ func NewRouter(db *gorm.DB, conf *config.AppConfig) *gin.Engine {
 	router.POST("/clients", clientsService.Register)
 	router.GET("/api/qr", polyIdService.GetBasicQR)
 	router.POST("/api/sessions/:id", polyIdService.GenerateProof)
+	router.POST("/oauth2/token", sessionService.ExchangeToken)
 
 	router.POST("/callback", polyIdService.ServeRedirect)
 	router.GET("/api/sessions/:id", sessionService.GetSessionUser)

@@ -105,9 +105,30 @@ func (s *PolygonIDService) GenerateProof(c *gin.Context) {
 			"firstName": map[string]interface{}{
 				"$eq": body.FirstName,
 			},
+		},
+		"context": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld",
+		"type":    "UsersFinanceKYC",
+	}
+	var mtpProofRequest2 protocol.ZeroKnowledgeProofRequest
+	mtpProofRequest2.ID = 2
+	mtpProofRequest2.CircuitID = string(circuits.AtomicQuerySigV2CircuitID)
+	mtpProofRequest2.Query = map[string]interface{}{
+		"allowedIssuers": []string{"*"},
+		"credentialSubject": map[string]interface{}{
 			"lastName": map[string]interface{}{
 				"$eq": body.LastName,
 			},
+		},
+		"context": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld",
+		"type":    "UsersFinanceKYC",
+	}
+
+	var mtpProofRequest3 protocol.ZeroKnowledgeProofRequest
+	mtpProofRequest3.ID = 3
+	mtpProofRequest3.CircuitID = string(circuits.AtomicQuerySigV2CircuitID)
+	mtpProofRequest3.Query = map[string]interface{}{
+		"allowedIssuers": []string{"*"},
+		"credentialSubject": map[string]interface{}{
 			"emailAddress": map[string]interface{}{
 				"$eq": body.Email,
 			},
@@ -116,8 +137,14 @@ func (s *PolygonIDService) GenerateProof(c *gin.Context) {
 		"type":    "UsersFinanceKYC",
 	}
 	request.Body.Scope = append(request.Body.Scope, mtpProofRequest)
+	request.Body.Scope = append(request.Body.Scope, mtpProofRequest2)
+	request.Body.Scope = append(request.Body.Scope, mtpProofRequest3)
+
 	reqJSON, _ := json.Marshal(request)
+
+	claimsJSON, _ := json.Marshal(body)
 	session.AuthRequest = reqJSON
+	session.Claims = claimsJSON
 	if err := session.Save(s.db); err != nil {
 		c.JSON(http.StatusInternalServerError, map[string]interface{}{"error": err.Error})
 		return
@@ -183,7 +210,30 @@ func (s *PolygonIDService) ServeRedirect(c *gin.Context) {
 	userId := authResponse.From
 
 	session.UserId = userId
-	session.Connected = true
+	if session.Connected {
+		claims := CreateProofRequest{}
+		if err := json.Unmarshal(session.Claims, &claims); err != nil {
+			c.JSON(http.StatusInternalServerError, map[string]interface{}{"error": err.Error()})
+			return
+		}
+		user := models.User{}
+		if _, err := user.GetById(userId, s.db); err != nil {
+			c.JSON(http.StatusInternalServerError, map[string]interface{}{"error": err.Error()})
+			return
+		}
+		user.FirstName = claims.FirstName
+		user.LastName = claims.LastName
+		user.Email = claims.Email
+		user.IsAccepted = true
+		if err := user.Save(s.db); err != nil {
+			c.JSON(http.StatusInternalServerError, map[string]interface{}{"error": err.Error()})
+			return
+		}
+
+	} else {
+		session.Connected = true
+	}
+	session.IsVerified = true
 	if err := session.Save(s.db); err != nil {
 		c.JSON(http.StatusInternalServerError, map[string]interface{}{"error": err.Error()})
 		return

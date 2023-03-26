@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"github.com/tarkmote-ou/scaling-thereum-2023-poly-Id-bridge/models"
 	"github.com/tarkmote-ou/scaling-thereum-2023-poly-Id-bridge/utils"
 	"gorm.io/gorm"
@@ -31,7 +32,8 @@ func (c Clients) Register(ctx *gin.Context) {
 	}
 	client := models.Client{
 		Id:          did,
-		Secret:      key,
+		Secret:      uuid.NewString(),
+		PrivateKey:  key,
 		Name:        body.Name,
 		RedirectUrl: body.RedirectUrl,
 	}

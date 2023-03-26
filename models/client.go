@@ -8,6 +8,7 @@ import (
 type Client struct {
 	Id          string `gorm:"primaryKey" json:"id"`
 	Secret      string `json:"secret"`
+	PrivateKey  []byte `json:"-"`
 	Name        string `json:"name"`
 	RedirectUrl string `json:"redirect_url"`
 }

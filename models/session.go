@@ -42,3 +42,9 @@ func (s *Session) GetByRequestId(requestId string, db *gorm.DB) (*Session, error
 	err := db.Model(s).Where("request_id = ?", requestId).Take(s).Error
 	return s, err
 }
+
+func (s *Session) GetByCode(code string, db *gorm.DB) (*Session, error) {
+	err := db.Model(s).Where("code = ?", code).Take(s).Error
+	return s, err
+
+}

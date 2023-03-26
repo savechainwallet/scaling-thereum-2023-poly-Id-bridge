@@ -22,7 +22,7 @@
         b-row.mt-2
           b-col 
             b-button( variant="primary" @click="confirmationStart") Confirm
-  b-modal(ref="qr-modal" hide-footer title="Scan for generate proof")
+  b-modal(ref="qr-modal" hide-footer title="Scan for generate proof" size="lg")
     b-container 
       b-row(align-v="center")
         b-col
@@ -36,8 +36,8 @@
 </template>
   
   <script>
-  import {GenerateProof} from "../services/back"
-  import {mapGetters, mapState} from "vuex"
+  import {GenerateProof,GetSession} from "../services/back"
+  import {mapGetters, mapState, mapMutations} from "vuex"
   
   export default {
     name: 'HomeView',
@@ -47,15 +47,36 @@
         firstName:"",
         lastName:"",
         email:"",
-        qrData:""
+        qrData:"",
+        timerId:""
       }
     },
     methods: {
+      ...mapMutations(["setUser","setSession"]),
       async confirmationStart(){
         this.qrData = await GenerateProof({first_name:this.firstName, last_name:this.lastName, email:this.email}, this.sessionId)
         this.$refs['qr-modal'].show()
+        let timerId = setInterval(this.confirmationEnd,1000)
+        this.timerId = timerId
+
+      },
+      async confirmationEnd(){
+      try {
+        const session = await GetSession(this.sessionId)
+        if (session.user.is_authorized){
+          clearInterval(this.timerId)
+          this.setUser(session.user)
+          this.setSession(this.sessionId)
+          window.location.href = this.getRedirectUrl
+        }
+
+      } catch (e) {
+        console.error(e)
 
       }
+      
+
+    }
 
     },
     computed:{

@@ -27,6 +27,7 @@ export default {
         if (session.connected) {
           clearInterval(this.timerId)
           this.setUser(session.user)
+          console.log(session.user)
           this.setSession(this.sessionId)
           this.$router.push({ path: 'userinfo' }).catch(err => {})
 
