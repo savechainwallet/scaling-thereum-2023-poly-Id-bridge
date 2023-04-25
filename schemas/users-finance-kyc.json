@@ -1,162 +1,125 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "$metadata": {
-      "uris": {
-        "jsonLdContext": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld",
-        "jsonSchema": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.json"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "$metadata": {
+    "uris": {
+      "jsonLdContext": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld",
+      "jsonSchema": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.json"
+    }
+  },
+  "required": [
+    "@context",
+    "id",
+    "type",
+    "issuanceDate",
+    "credentialSubject",
+    "credentialSchema",
+    "credentialStatus",
+    "issuer"
+  ],
+  "properties": {
+    "@context": {
+      "type": [
+        "string",
+        "array",
+        "object"
+      ]
+    },
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "items": {
+        "type": "string"
       }
     },
-    "required": [
-      "@context",
-      "id",
-      "type",
-      "issuanceDate",
-      "credentialSubject",
-      "credentialSchema",
-      "credentialStatus",
-      "issuer"
-    ],
-    "properties": {
-      "@context": {
-        "type": [
-          "string",
-          "array",
-          "object"
-        ]
-      },
-      "id": {
-        "type": "string"
-      },
-      "type": {
-        "type": [
-          "string",
-          "array"
-        ],
-        "items": {
+    "issuer": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "format": "uri",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "issuanceDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "credentialSchema": {
+      "type": "object",
+      "required": [
+        "id",
+        "type"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
           "type": "string"
         }
-      },
-      "issuer": {
-        "type": [
-          "string",
-          "object"
-        ],
-        "format": "uri",
-        "required": [
-          "id"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uri"
-          }
-        }
-      },
-      "issuanceDate": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "expirationDate": {
-        "type": "string",
-        "format": "date-time"
-      },
-      "credentialSchema": {
-        "type": "object",
-        "required": [
-          "id",
-          "type"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "type": {
+      }
+    },
+    "subjectPosition": {
+      "type": "string",
+      "enum": [
+        "none",
+        "index",
+        "value"
+      ]
+    },
+    "merklizationRootPosition": {
+      "type": "string",
+      "enum": [
+        "none",
+        "index",
+        "value"
+      ]
+    },
+    "revNonce": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "integer"
+    },
+    "updatable": {
+      "type": "boolean"
+    },
+    "credentialSubject": {
+      "type": "object",
+      "required": [
+        "id",
+        "phoneNumber"
+      ],
+      "properties": {
+        "id": {
+          "title": "Credential Subject ID",
+          "type": "string",
+          "format": "uri"
+        },
+        "phoneNumber": {
             "type": "string"
           }
-        }
-      },
-      "subjectPosition": {
-        "type": "string",
-        "enum": [
-          "none",
-          "index",
-          "value"
-        ]
-      },
-      "merklizationRootPosition": {
-        "type": "string",
-        "enum": [
-          "none",
-          "index",
-          "value"
-        ]
-      },
-      "revNonce": {
-        "type": "integer"
-      },
-      "version": {
-        "type": "integer"
-      },
-      "updatable": {
-        "type": "boolean"
-      },
-      "credentialSubject": {
-        "type": "object",
-        "required": [
-          "id",
-          "phoneNumber",
-          "emailAddress",
-          "postalCode",
-          "district",
-          "addressLine1",
-          "country",
-          "city",
-          "lastName",
-          "firstName"
-        ],
-        "properties": {
-          "id": {
-            "title": "Credential Subject ID",
-            "type": "string",
-            "format": "uri"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-              "type": "string"
-            },
-          "middleName": {
-              "type": "string"
-            },
-          "city": {
-              "type": "string"
-            },
-          "country": {
-              "type": "string"
-            },
-          "addressLine1": {
-              "type": "string"
-            },
-          "addressLine2": {
-              "type": "string"
-            },
-          "district": {
-              "type": "string"
-            },
-          "postalCode": {
-              "type": "string"
-            },
-          "phoneNumber": {
-              "type": "string"
-            },
-          "emailAddress": {
-              "type": "string"
-            }
-          
-        }
+        
+        
       }
     }
   }
+}

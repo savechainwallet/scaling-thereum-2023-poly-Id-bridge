@@ -1,36 +1,26 @@
 {
-    "@context": [
-      {
-        "@version": 1.1,
-        "@protected": true,
-        "id": "@id",
-        "type": "@type",
-        "UsersFinanceKYC": {
-          "@id": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld#UsersFinanceKYC",
-          "@context": {
-            "@version": 1.1,
-            "@protected": true,
-            "id": "@id",
-            "type": "@type",
-            "vocab": "https://github.com/0xPolygonID/tutorial-examples/blob/main/credential-schema/proof-of-dao-longevity-vocab.md#",
-            "xsd": "http://www.w3.org/2001/XMLSchema#",
-            "firstName": {
-              "@id": "vocab:firstName",
-              "@type": "xsd:string"
-            },
-            "lastName": {
-                "@id": "vocab:lastName",
-                "@type": "xsd:string"
-              },
-            "emailAddress": {
-                "@id": "vocab:emailAddress",
-                "@type": "xsd:string"
-              }
-            
-            
+  "@context": [
+    {
+      "@version": 1.1,
+      "@protected": true,
+      "id": "@id",
+      "type": "@type",
+      "UsersFinanceKYC": {
+        "@id": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc.jsonld#UsersFinanceKYC",
+        "@context": {
+          "@version": 1.1,
+          "@protected": true,
+          "id": "@id",
+          "type": "@type",
+          "vocab": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc-vocab.md#",
+          "xsd": "http://www.w3.org/2001/XMLSchema#",
+          "phoneNumber": {
+            "@id": "vocab:phoneNumber",
+            "@type": "xsd:string"
           }
+          
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
