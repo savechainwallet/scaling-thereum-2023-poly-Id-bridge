@@ -1,3 +1,7 @@
-# phoneNumber
+# email
 
-Virified phone number
+Virified email
+
+# walletId
+
+Wallet address

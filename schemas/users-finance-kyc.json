@@ -106,7 +106,7 @@
       "type": "object",
       "required": [
         "id",
-        "phoneNumber"
+        "email"
       ],
       "properties": {
         "id": {
@@ -114,7 +114,10 @@
           "type": "string",
           "format": "uri"
         },
-        "phoneNumber": {
+        "email": {
+            "type": "string"
+          },
+          "walletId": {
             "type": "string"
           }
         

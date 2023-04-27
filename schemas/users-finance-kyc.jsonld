@@ -17,6 +17,10 @@
           "phoneNumber": {
             "@id": "vocab:phoneNumber",
             "@type": "xsd:string"
+          },
+          "walletId": {
+            "@id": "vocab:walletId",
+            "@type": "xsd:string"
           }
           
         }
