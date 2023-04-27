@@ -14,8 +14,8 @@
           "type": "@type",
           "vocab": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/schemas/users-finance-kyc-vocab.md#",
           "xsd": "http://www.w3.org/2001/XMLSchema#",
-          "phoneNumber": {
-            "@id": "vocab:phoneNumber",
+          "email": {
+            "@id": "vocab:email",
             "@type": "xsd:string"
           },
           "walletId": {
