@@ -1,16 +1,16 @@
-# first_name
+# firstName
 
 First Name
 
-# middle_name
+# middleName
 
 Middle Name
 
-# last_name
+# lastName
 
 Last Name
 
-# date_of_birth
+# dateOfBirth
 
 Date Of Birth
 
@@ -22,27 +22,27 @@ Nationality
 
 Residence
 
-# address_country
+# addressCountry
 
 Address Country
 
-# address_state
+# addressState
 
 Address State
 
-# address_unit
+# addressUnit
 
 Address Unit
 
-# address_street
+# addressStreet
 
 Address Street
 
-# address_city
+# addressCity
 
 Address City
 
-# address_zip
+# addressZip
 
 Address ZIP
 
