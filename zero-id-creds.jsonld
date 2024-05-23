@@ -1,0 +1,79 @@
+{
+    "@context": [
+      {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "ZeroIdCreds": {
+          "@id": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/zero-id-creds.jsonld#ZeroIdCreds",
+          "@context": {
+            "@version": 1.1,
+            "@protected": true,
+            "id": "@id",
+            "type": "@type",
+            "vocab": "https://raw.githubusercontent.com/savechainwallet/scaling-thereum-2023-poly-Id-bridge/main/zero-id-creds-vocab.md#",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "email": {
+              "@id": "vocab:email",
+              "@type": "xsd:string"
+            },
+            "firstName": {
+              "@id": "vocab:firstName",
+              "@type": "xsd:string"
+            },
+            "middleName": {
+                "@id": "vocab:middleName",
+                "@type": "xsd:string"
+            },
+            "lastName": {
+                "@id": "vocab:lastName",
+                "@type": "xsd:string"
+            },
+            "dateOfBirth": {
+                "@id": "vocab:dateOfBirth",
+                "@type": "xsd:string"
+            },
+            "nationality": {
+                "@id": "vocab:nationality",
+                "@type": "xsd:string"
+            },
+            "residence": {
+                "@id": "vocab:residence",
+                "@type": "xsd:string"
+            },
+            "addressCountry": {
+                "@id": "vocab:addressCountry",
+                "@type": "xsd:string"
+            },
+            "addressState": {
+                "@id": "vocab:addressState",
+                "@type": "xsd:string"
+            },
+            "addressUnit": {
+                "@id": "vocab:addressUnit",
+                "@type": "xsd:string"
+            },
+            "addressStreet": {
+                "@id": "vocab:addressStreet",
+                "@type": "xsd:string"
+            },
+            "addressCity": {
+                "@id": "vocab:addressCity",
+                "@type": "xsd:string"
+            },
+            "addressZip": {
+                "@id": "vocab:addressZip",
+                "@type": "xsd:string"
+            },
+            "phone": {
+                "@id": "vocab:phone",
+                "@type": "xsd:string"
+            }
+            
+          }
+        }
+      }
+    ]
+  }
+  
